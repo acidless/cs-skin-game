@@ -59,7 +59,7 @@ export default {
       baseIdx.value = random(0, props.skins.length);
       secondIdx.value = random(baseIdx.value - 10, Math.min(props.skins.length, baseIdx.value + 10));
 
-      if(baseIdx.value == secondIdx.value){
+      if(props.skins[baseIdx.value].market_name === props.skins[secondIdx.value].market_name){
         startRound();
       }
 
