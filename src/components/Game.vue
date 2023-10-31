@@ -57,7 +57,7 @@ export default {
 
     function startRound() {
       baseIdx.value = random(0, props.skins.length);
-      secondIdx.value = random(baseIdx.value - 10, Math.min(props.skins.length, baseIdx.value + 10));
+      secondIdx.value = random(Math.max(0, baseIdx.value - 10), Math.min(props.skins.length, baseIdx.value + 10));
 
       if(props.skins[baseIdx.value].market_name === props.skins[secondIdx.value].market_name){
         startRound();
@@ -66,8 +66,6 @@ export default {
       choosenIdx.value = -1;
       isWon.value = false;
       gameSkins.value = shuffle([props.skins[baseIdx.value], props.skins[secondIdx.value]]);
-      console.log(gameSkins.value[0].stickers);
-      console.log(gameSkins.value[1].stickers);
       canChoose.value = true;
     }
 
